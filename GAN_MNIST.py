@@ -119,7 +119,7 @@ def save_plot(examples, epoch, n=10):
 		# plot raw pixel data
 		pyplot.imshow(examples[i, :, :, 0], cmap='gray_r')
 	# save plot to file
-	filename = 'generated_plot_e%03d.png' % (epoch+1)
+	filename = 'results_convergence/generated_plot_e%03d.png' % (epoch+1)
 	pyplot.savefig(filename)
 	pyplot.close()
 
@@ -137,7 +137,7 @@ def summarize_performance(epoch, g_model, d_model, dataset, latent_dim, n_sample
 	# save plot
 	save_plot(x_fake, epoch)
 	# save the generator model tile file
-	filename = 'generator_model_%03d.h5' % (epoch + 1)
+	filename = 'results_convergence/generator_model_%03d.h5' % (epoch + 1)
 	g_model.save(filename)
     
 # create a line plot of loss for the gan and save to file

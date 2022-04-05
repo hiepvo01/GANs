@@ -135,7 +135,7 @@ def summarize_performance(step, g_model, latent_dim, n_samples=100):
 		# plot raw pixel data
 		pyplot.imshow(X[i, :, :, 0], cmap='gray_r')
 	# save plot to file
-	filename1 = 'generated_plot_%06d.png' % (step+1)
+	filename1 = 'results_convergence/generated_plot_%06d.png' % (step+1)
 	pyplot.savefig(filename1)
 	pyplot.close()
 	# save the generator model
