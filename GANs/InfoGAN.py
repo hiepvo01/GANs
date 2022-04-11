@@ -193,18 +193,19 @@ def train(g_model, d_model, gan_model, dataset, latent_dim, n_cat, n_epochs=100,
         print('>%d, d[%.3f,%.3f], g[%.3f] q[%.3f]' % (i+1, d_loss1, d_loss2, g_1, g_2))
         if (i+1) % (bat_per_epo * 10) == 0:
             summarize_performance(i, g_model, gan_model, latent_dim, n_cat)
-    # number of values for the categorical control code
-    n_cat = 10
-    # size of the latent space
-    latent_dim = 62
-    # create the discriminator
-    d_model, q_model = define_discriminator(n_cat)
-    # create the generator
-    gen_input_size = latent_dim + n_cat
-    g_model = define_generator(gen_input_size)
-    # create the gan
-    gan_model = define_gan(g_model, d_model, q_model)
-    # load image data
-    dataset = load_real_samples()
-    # train model
-    train(g_model, d_model, gan_model, dataset, latent_dim, n_cat)
+            
+# number of values for the categorical control code
+n_cat = 10
+# size of the latent space
+latent_dim = 62
+# create the discriminator
+d_model, q_model = define_discriminator(n_cat)
+# create the generator
+gen_input_size = latent_dim + n_cat
+g_model = define_generator(gen_input_size)
+# create the gan
+gan_model = define_gan(g_model, d_model, q_model)
+# load image data
+dataset = load_real_samples()
+# train model
+train(g_model, d_model, gan_model, dataset, latent_dim, n_cat)
