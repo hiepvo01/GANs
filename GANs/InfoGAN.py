@@ -154,14 +154,14 @@ def summarize_performance(step, g_model, gan_model, latent_dim, n_cat, n_samples
         # plot raw pixel data
         pyplot.imshow(X[i, :, :, 0], cmap='gray_r')
         # save plot to file
-        filename1 = 'InfoGAN_results/generated_plot_%04d.png' % (step+1)
+        filename1 = '../InfoGAN_results/generated_plot_%04d.png' % (step+1)
         pyplot.savefig(filename1)
         pyplot.close()
     # save the generator model
-    filename2 = 'InfoGAN_results/model_%04d.h5' % (step+1)
+    filename2 = '../InfoGAN_results/model_%04d.h5' % (step+1)
     g_model.save(filename2)
     # save the gan model
-    filename3 = 'InfoGAN_results/gan_model_%04d.h5' % (step+1)
+    filename3 = '../InfoGAN_results/gan_model_%04d.h5' % (step+1)
     gan_model.save(filename3)
     print('>Saved: %s, %s, and %s' % (filename1, filename2, filename3))
     
