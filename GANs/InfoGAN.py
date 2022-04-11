@@ -1,7 +1,7 @@
 # example of training an unstable gan for generating a handwritten digit
 from os import makedirs
-from numpy import expand_dims, zeros, ones, vstack
-from numpy.random import randn, randint, hstack
+from numpy import expand_dims, zeros, ones, vstack, hstack
+from numpy.random import randn, randint
 
 from tensorflow.keras.datasets.mnist import load_data
 from tensorflow.keras.optimizers import Adam

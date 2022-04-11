@@ -1,5 +1,6 @@
 from tensorflow.keras.utils import to_categorical
 from numpy.random import randint
+from numpy import hstack
 
 # generate categorical codes
 cat_codes = randint(0, 10, 20)
