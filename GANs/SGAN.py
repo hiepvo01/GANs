@@ -165,7 +165,7 @@ def summarize_performance(step, g_model, c_model, latent_dim, dataset, n_samples
 		# plot raw pixel data
 		pyplot.imshow(X[i, :, :, 0], cmap='gray_r')
 	# save plot to file
-	filename1 = 'SGAN_results/generated_plot_%04d.png' % (step+1)
+	filename1 = '../SGAN_results/generated_plot_%04d.png' % (step+1)
 	pyplot.savefig(filename1)
 	pyplot.close()
 	# evaluate the classifier model
@@ -173,10 +173,10 @@ def summarize_performance(step, g_model, c_model, latent_dim, dataset, n_samples
 	_, acc = c_model.evaluate(X, y, verbose=0)
 	print('Classifier Accuracy: %.3f%%' % (acc * 100))
 	# save the generator model
-	filename2 = 'SGAN_results/g_model_%04d.h5' % (step+1)
+	filename2 = '../SGAN_results/g_model_%04d.h5' % (step+1)
 	g_model.save(filename2)
 	# save the classifier model
-	filename3 = 'SGAN_results/c_model_%04d.h5' % (step+1)
+	filename3 = '../SGAN_results/c_model_%04d.h5' % (step+1)
 	c_model.save(filename3)
 	print('>Saved: %s, %s, and %s' % (filename1, filename2, filename3))
 
