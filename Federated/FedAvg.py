@@ -163,6 +163,8 @@ def evaluate(server_state):
   keras_model.set_weights(server_state)
   keras_model.evaluate(central_emnist_test)
 
+server_state = federated_algorithm.initialize()
+evaluate(server_state)
 for round in range(15):
   server_state = federated_algorithm.next(server_state, federated_train_data)
 
