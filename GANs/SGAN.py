@@ -20,6 +20,7 @@ from tensorflow.keras.layers import Lambda
 from tensorflow.keras.layers import Activation
 from matplotlib import pyplot
 from tensorflow.keras import backend
+import os.makedirs as makedirs
 
 # custom activation function
 def custom_activation(output):

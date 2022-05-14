@@ -8,6 +8,7 @@ from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Reshape, Flatten, Conv2D, Conv2DTranspose, LeakyReLU, BatchNormalization, Dropout, Activation
 from tensorflow.keras.initializers import RandomNormal
+import os.makedirs as makedirs
 
 from matplotlib import pyplot
 

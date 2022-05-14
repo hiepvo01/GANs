@@ -21,6 +21,7 @@ from tensorflow.keras.layers import Activation
 from tensorflow.keras.layers import Concatenate
 from tensorflow.keras.initializers import RandomNormal
 from matplotlib import pyplot
+import os.makedirs as makedirs
 
 # define the standalone discriminator model
 def define_discriminator(in_shape=(28,28,1), n_classes=10):

@@ -18,6 +18,7 @@ from tensorflow.keras.layers import BatchNormalization
 from tensorflow.keras.initializers import RandomNormal
 from tensorflow.keras.constraints import Constraint
 from matplotlib import pyplot
+import os.makedirs as makedirs
 
 # clip model weights to a given hypercube
 class ClipConstraint(Constraint):

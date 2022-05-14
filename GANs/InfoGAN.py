@@ -20,6 +20,7 @@ from tensorflow.keras.layers import LeakyReLU
 from tensorflow.keras.layers import BatchNormalization
 from tensorflow.keras.layers import Activation
 from matplotlib import pyplot
+import os.makedirs as makedirs
 
 # define the standalone discriminator model
 def define_discriminator(n_cat, in_shape=(28,28,1)):
