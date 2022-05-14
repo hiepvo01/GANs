@@ -106,6 +106,13 @@ def server_init():
 def initialize_fn():
   return tff.federated_value(server_init(), tff.SERVER)
 
+whimsy_model = model_fn()
+tf_dataset_type = tff.SequenceType(whimsy_model.input_spec)
+
+print(str(tf_dataset_type))
+model_weights_type = server_init.type_signature.result
+print(model_weights_type)
+
 @tff.tf_computation(tf_dataset_type, model_weights_type)
 def client_update_fn(tf_dataset, server_weights):
   model = model_fn()
