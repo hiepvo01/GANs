@@ -21,7 +21,7 @@ from tensorflow.keras.layers import Activation
 from tensorflow.keras.layers import Concatenate
 from tensorflow.keras.initializers import RandomNormal
 from matplotlib import pyplot
-import os.makedirs as makedirs
+import os
 
 # define the standalone discriminator model
 def define_discriminator(in_shape=(28,28,1), n_classes=10):
@@ -208,7 +208,7 @@ def train(g_model, d_model, gan_model, dataset, latent_dim, n_epochs=100, n_batc
 			summarize_performance(i, g_model, latent_dim)
 
 # make folder for results
-makedirs('results/ACGAN', exist_ok=True)
+os.makedirs('results/ACGAN', exist_ok=True)
 # size of the latent space
 latent_dim = 100
 # create the discriminator

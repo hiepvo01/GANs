@@ -18,7 +18,7 @@ from tensorflow.keras.layers import BatchNormalization
 from tensorflow.keras.initializers import RandomNormal
 from tensorflow.keras.constraints import Constraint
 from matplotlib import pyplot
-import os.makedirs as makedirs
+import os
 
 # clip model weights to a given hypercube
 class ClipConstraint(Constraint):
@@ -222,7 +222,7 @@ def train(g_model, c_model, gan_model, dataset, latent_dim, n_epochs=10, n_batch
 	plot_history(c1_hist, c2_hist, g_hist)
 
 # make folder for results
-makedirs('results/WGAN', exist_ok=True)
+os.makedirs('results/WGAN', exist_ok=True)
 # size of the latent space
 latent_dim = 50
 # create the critic

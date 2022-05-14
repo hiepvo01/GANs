@@ -1,7 +1,7 @@
 # example of a wgan for generating handwritten digits
 from numpy import expand_dims, mean, ones, zeros
 from numpy.random import randn, randint
-import os.makedirs as makedirs
+import os
 
 from tensorflow.keras.datasets.fashion_mnist import load_data
 from tensorflow.keras import backend
@@ -170,7 +170,7 @@ def train(g_model, d_model, gan_model, dataset, latent_dim, n_epochs=100, n_batc
 	g_model.save('results/CGAN/cgan_generator.h5')
 
 # make folder for results
-makedirs('results/CGAN', exist_ok=True)
+os.makedirs('results/CGAN', exist_ok=True)
 # size of the latent space
 latent_dim = 100
 # create the critic

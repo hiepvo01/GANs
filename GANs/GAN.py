@@ -8,7 +8,7 @@ from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Reshape, Flatten, Conv2D, Conv2DTranspose, LeakyReLU, BatchNormalization, Dropout
 from tensorflow.keras.initializers import RandomNormal
-import os.makedirs as makedirs
+import os
 
 from matplotlib import pyplot
 
@@ -188,7 +188,7 @@ def train(g_model, d_model, gan_model, dataset, latent_dim, n_epochs=100, n_batc
 
     
 # make folder for results
-makedirs('results/GAN', exist_ok=True)
+os.makedirs('results/GAN', exist_ok=True)
 # size of the latent space
 latent_dim = 50
 # create the discriminator

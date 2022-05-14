@@ -8,7 +8,7 @@ from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Reshape, Flatten, Conv2D, Conv2DTranspose, LeakyReLU, BatchNormalization, Dropout, Activation
 from tensorflow.keras.initializers import RandomNormal
-import os.makedirs as makedirs
+import os
 
 from matplotlib import pyplot
 
@@ -191,7 +191,7 @@ def train(g_model, d_model, gan_model, dataset, latent_dim, n_epochs=20, n_batch
 	plot_history(d1_hist, d2_hist, g_hist)
 
 # make folder for results
-makedirs('results/LSGAN', exist_ok=True)
+os.makedirs('results/LSGAN', exist_ok=True)
 # size of the latent space
 latent_dim = 100
 # create the discriminator

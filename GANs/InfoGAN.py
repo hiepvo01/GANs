@@ -20,7 +20,7 @@ from tensorflow.keras.layers import LeakyReLU
 from tensorflow.keras.layers import BatchNormalization
 from tensorflow.keras.layers import Activation
 from matplotlib import pyplot
-import os.makedirs as makedirs
+import os
 
 # define the standalone discriminator model
 def define_discriminator(n_cat, in_shape=(28,28,1)):
@@ -206,7 +206,7 @@ def train(g_model, d_model, gan_model, dataset, latent_dim, n_cat, n_epochs=100,
 			summarize_performance(i, g_model, gan_model, latent_dim, n_cat)
 
 # make folder for results
-makedirs('results/InfoGAN', exist_ok=True)
+os.makedirs('results/InfoGAN', exist_ok=True)
 # number of values for the categorical control code
 n_cat = 10
 # size of the latent space

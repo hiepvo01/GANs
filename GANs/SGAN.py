@@ -20,8 +20,7 @@ from tensorflow.keras.layers import Lambda
 from tensorflow.keras.layers import Activation
 from matplotlib import pyplot
 from tensorflow.keras import backend
-import os.makedirs as makedirs
-
+import os
 # custom activation function
 def custom_activation(output):
 	logexpsum = backend.sum(backend.exp(output), axis=-1, keepdims=True)
@@ -213,7 +212,7 @@ def train(g_model, d_model, c_model, gan_model, dataset, latent_dim, n_epochs=20
 			summarize_performance(i, g_model, c_model, latent_dim, dataset)
 
 # make folder for results
-makedirs('results/SGAN', exist_ok=True)
+os.makedirs('results/SGAN', exist_ok=True)
 # size of the latent space
 latent_dim = 100
 # create the discriminator models
