@@ -163,14 +163,14 @@ def summarize_performance(step, g_model, gan_model, latent_dim, n_cat, n_samples
 		# plot raw pixel data
 		pyplot.imshow(X[i, :, :, 0], cmap='gray_r')
 	# save plot to file
-	filename1 = 'generated_plot_%04d.png' % (step+1)
+	filename1 = 'results/InfoGAN/generated_plot_%04d.png' % (step+1)
 	pyplot.savefig(filename1)
 	pyplot.close()
 	# save the generator model
-	filename2 = 'model_%04d.h5' % (step+1)
+	filename2 = 'results/InfoGAN/model_%04d.h5' % (step+1)
 	g_model.save(filename2)
 	# save the gan model
-	filename3 = 'gan_model_%04d.h5' % (step+1)
+	filename3 = 'results/InfoGAN/gan_model_%04d.h5' % (step+1)
 	gan_model.save(filename3)
 	print('>Saved: %s, %s, and %s' % (filename1, filename2, filename3))
 
@@ -204,6 +204,8 @@ def train(g_model, d_model, gan_model, dataset, latent_dim, n_cat, n_epochs=100,
 		if (i+1) % (bat_per_epo * 10) == 0:
 			summarize_performance(i, g_model, gan_model, latent_dim, n_cat)
 
+# make folder for results
+makedirs('results/InfoGAN', exist_ok=True)
 # number of values for the categorical control code
 n_cat = 10
 # size of the latent space

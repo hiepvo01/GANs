@@ -135,11 +135,11 @@ def summarize_performance(step, g_model, latent_dim, n_samples=100):
 		# plot raw pixel data
 		pyplot.imshow(X[i, :, :, 0], cmap='gray_r')
 	# save plot to file
-	filename1 = 'results_convergence/generated_plot_%06d.png' % (step+1)
+	filename1 = 'results/LSGAN/generated_plot_%06d.png' % (step+1)
 	pyplot.savefig(filename1)
 	pyplot.close()
 	# save the generator model
-	filename2 = 'model_%06d.h5' % (step+1)
+	filename2 = 'results/LSGAN/model_%06d.h5' % (step+1)
 	g_model.save(filename2)
 	print('Saved %s and %s' % (filename1, filename2))
     
@@ -149,7 +149,7 @@ def plot_history(d1_hist, d2_hist, g_hist):
     pyplot.plot(d2_hist, label='dloss2')
     pyplot.plot(g_hist, label='gloss')
     pyplot.legend()
-    filename = 'plot_line_plot_loss.png'
+    filename = 'results/LSGAN/plot_line_plot_loss.png'
     pyplot.savefig(filename)
     pyplot.close()
     print('Saved %s' % (filename))
@@ -189,6 +189,8 @@ def train(g_model, d_model, gan_model, dataset, latent_dim, n_epochs=20, n_batch
 	# create line plot of training history
 	plot_history(d1_hist, d2_hist, g_hist)
 
+# make folder for results
+makedirs('results/LSGAN', exist_ok=True)
 # size of the latent space
 latent_dim = 100
 # create the discriminator

@@ -119,7 +119,7 @@ def save_plot(examples, epoch, n=10):
 		# plot raw pixel data
 		pyplot.imshow(examples[i, :, :, 0], cmap='gray_r')
 	# save plot to file
-	filename = 'results_convergence/generated_plot_e%03d.png' % (epoch+1)
+	filename = 'results/GAN/generated_plot_e%03d.png' % (epoch+1)
 	pyplot.savefig(filename)
 	pyplot.close()
 
@@ -137,7 +137,7 @@ def summarize_performance(epoch, g_model, d_model, dataset, latent_dim, n_sample
 	# save plot
 	save_plot(x_fake, epoch)
 	# save the generator model tile file
-	filename = 'results_convergence/generator_model_%03d.h5' % (epoch + 1)
+	filename = 'results/GAN/generator_model_%03d.h5' % (epoch + 1)
 	g_model.save(filename)
     
 # create a line plot of loss for the gan and save to file
@@ -152,7 +152,7 @@ def plot_history(d_hist, g_hist, a_hist):
     pyplot.plot(a_hist, label='acc')
     pyplot.legend()
     # save plot to file
-    pyplot.savefig('results_convergence/plot_line_plot_loss.png')
+    pyplot.savefig('results/GAN/plot_line_plot_loss.png')
     pyplot.close()
     
 # train the generator and discriminator
@@ -187,7 +187,7 @@ def train(g_model, d_model, gan_model, dataset, latent_dim, n_epochs=100, n_batc
 
     
 # make folder for results
-makedirs('results_convergence', exist_ok=True)
+makedirs('results/GAN', exist_ok=True)
 # size of the latent space
 latent_dim = 50
 # create the discriminator

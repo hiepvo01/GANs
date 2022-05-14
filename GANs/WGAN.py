@@ -159,11 +159,11 @@ def summarize_performance(step, g_model, latent_dim, n_samples=100):
 		# plot raw pixel data
 		pyplot.imshow(X[i, :, :, 0], cmap='gray_r')
 	# save plot to file
-	filename1 = 'results_convergence/generated_plot_%04d.png' % (step+1)
+	filename1 = 'results/WGAN/generated_plot_%04d.png' % (step+1)
 	pyplot.savefig(filename1)
 	pyplot.close()
 	# save the generator model
-	filename2 = 'results_convergence/model_%04d.h5' % (step+1)
+	filename2 = 'results/WGAN/model_%04d.h5' % (step+1)
 	g_model.save(filename2)
 	print('>Saved: %s and %s' % (filename1, filename2))
 
@@ -174,7 +174,7 @@ def plot_history(d1_hist, d2_hist, g_hist):
 	pyplot.plot(d2_hist, label='crit_fake')
 	pyplot.plot(g_hist, label='gen')
 	pyplot.legend()
-	pyplot.savefig('plot_line_plot_loss.png')
+	pyplot.savefig('results/WGAN/plot_line_plot_loss.png')
 	pyplot.close()
 
 # train the generator and critic
@@ -220,6 +220,8 @@ def train(g_model, c_model, gan_model, dataset, latent_dim, n_epochs=10, n_batch
 	# line plots of loss
 	plot_history(c1_hist, c2_hist, g_hist)
 
+# make folder for results
+makedirs('results/WGAN', exist_ok=True)
 # size of the latent space
 latent_dim = 50
 # create the critic

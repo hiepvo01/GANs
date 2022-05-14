@@ -168,11 +168,11 @@ def summarize_performance(step, g_model, latent_dim, n_samples=100):
 		# plot raw pixel data
 		pyplot.imshow(X[i, :, :, 0], cmap='gray_r')
 	# save plot to file
-	filename1 = '../AC_GAN_results/generated_plot_%04d.png' % (step+1)
+	filename1 = 'results/ACGAN/generated_plot_%04d.png' % (step+1)
 	pyplot.savefig(filename1)
 	pyplot.close()
 	# save the generator model
-	filename2 = '../AC_GAN_results/model_%04d.h5' % (step+1)
+	filename2 = 'results/ACGAN/model_%04d.h5' % (step+1)
 	g_model.save(filename2)
 	print('>Saved: %s and %s' % (filename1, filename2))
 
@@ -206,6 +206,8 @@ def train(g_model, d_model, gan_model, dataset, latent_dim, n_epochs=100, n_batc
 		if (i+1) % (bat_per_epo * 10) == 0:
 			summarize_performance(i, g_model, latent_dim)
 
+# make folder for results
+makedirs('results/ACGAN', exist_ok=True)
 # size of the latent space
 latent_dim = 100
 # create the discriminator
