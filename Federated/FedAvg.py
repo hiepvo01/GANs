@@ -3,6 +3,17 @@ nest_asyncio.apply()
 import tensorflow as tf
 import tensorflow_federated as tff
 
+# Single GPU execution might hit OOM. 
+gpu_devices = tf.config.list_logical_devices('GPU')
+if not gpu_devices:
+  raise ValueError('Cannot detect physical GPU device in TF')
+tf.config.set_logical_device_configuration(
+    gpu_devices[0], 
+    [tf.config.LogicalDeviceConfiguration(memory_limit=1024),
+     tf.config.LogicalDeviceConfiguration(memory_limit=1024)])
+tf.config.list_logical_devices()
+tff.backends.native.set_local_python_execution_context(client_tf_devices=[gpu_devices[0]])
+
 # Input data
 emnist_train, emnist_test = tff.simulation.datasets.emnist.load_data()
 
