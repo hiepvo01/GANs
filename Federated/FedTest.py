@@ -50,3 +50,5 @@ def evaluate(num_rounds=10):
     t2 = time.time()
     print('metrics {m}, round time {t:.2f} seconds'.format(
         m=metrics, t=t2 - t1))
+
+evaluate()
