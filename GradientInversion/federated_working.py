@@ -18,7 +18,6 @@ import torch.optim as optim
 from torchvision import datasets, transforms
 from torch.utils.data.dataset import Dataset 
 from aijack.attack import GradientInversion_Attack
-import cv2
 from matplotlib import pyplot as plt  
 torch.backends.cudnn.benchmark=True
 
